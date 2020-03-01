@@ -19,7 +19,14 @@ export class SingleSavedComponent implements OnInit {
     this.devises = [
       {value: 'EUR', viewValue: '€'},
       {value: 'USD', viewValue: '$'},
-      {value: 'AUD', viewValue: 'AU$'}
+      {value: 'AUD', viewValue: 'AU$'},
+      {value: 'CAD', viewValue: '$CA'},
+      {value: 'CNY', viewValue: '¥'},
+      {value: 'PHP', viewValue: '₱'},
+      {value: 'DKK', viewValue: 'kr'},
+      {value: 'HUF', viewValue: 'Ft'},
+      {value: 'CZK', viewValue: 'Kč'},
+      {value: 'CHF', viewValue: 'CHF'}
     ];
     this.selected = this.devises[0].value;
     this.calcPrice();
