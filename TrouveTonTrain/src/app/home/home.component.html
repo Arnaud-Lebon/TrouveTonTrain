@@ -1,0 +1,71 @@
+<div class="sticky-div">
+  <button routerLink="/saved" class="btn btn-primary">Trajets enregistrés</button>
+  <form  [formGroup]="formGroup" autocomplete="off" (ngSubmit)="onSubmit()">
+    <div class="form-group row contain">
+
+      <div class="form-group">
+        <mat-form-field>
+          <mat-label>Départ</mat-label>
+          <input type="text" (input)="getOptions($event.target.value, 1)"
+                 matInput formControlName="from" [matAutocomplete]="from">
+        </mat-form-field>
+        <mat-autocomplete #from="matAutocomplete">
+          <mat-option *ngFor="let option of optionsFrom" [value]="option">{{option}}</mat-option>
+        </mat-autocomplete>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field>
+          <mat-label>Destination</mat-label>
+          <input type="text" (input)="getOptions($event.target.value, 2)"
+                 matInput formControlName="to" [matAutocomplete]="to">
+        </mat-form-field>
+        <mat-autocomplete #to="matAutocomplete">
+          <mat-option *ngFor="let option of optionsTo" [value]="option">{{option}}</mat-option>
+        </mat-autocomplete>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field>
+          <mat-label>Date</mat-label>
+          <input matInput formControlName="dateTime" [matDatepicker]="picker">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+
+        <ngb-timepicker formControlName="time" name="time"></ngb-timepicker>
+      </div>
+      <button style="height: 45px;" class="btn btn-primary" type="submit" [disabled]="formGroup.invalid">Rechercher</button>
+    </div>
+
+  </form>
+  <div *ngIf="fromP" class="resume-container">
+    <div>{{ dateSelected }}</div>
+    <div *ngIf="fromP">{{ fromP.name }}</div>
+    <i class="material-icons">
+      arrow_right_alt
+    </i>
+    <div *ngIf="toP">{{ toP.name }}</div>
+    <div>{{ lengthTravel }}km</div>
+    <div>{{ costTravel }}{{selectedView}}</div>
+    <mat-form-field style="height: 60px;" *ngIf="costTravel">
+      <mat-label>Devise</mat-label>
+      <mat-select [(value)]="selected" (valueChange)="calcPrice()">
+        <mat-option *ngFor="let devise of devises" [value]="devise.value">
+          {{ devise.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+
+
+
+<app-single-journey
+  *ngFor="let journey of dataJourney"
+  [journey]="journey"
+  [lengthTravel]="lengthTravel"
+  [dateChoice]="dateChoice"></app-single-journey>
+

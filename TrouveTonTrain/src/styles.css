@@ -1,0 +1,74 @@
+/* You can add global styles to this file, and also import other style files */
+::-webkit-scrollbar {
+  display: none;  /* Chrome Safari */
+}
+html, body {
+  height: 100%;
+  user-select: none;
+  background-color: #2d545e;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+  overflow-y:scroll;
+  overflow-x:hidden;
+  color: #FFF;
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-autocomplete-panel.mat-autocomplete-visible{
+  background-color: #007bff;
+}
+.mat-form-field-appearance-legacy .mat-form-field-label {
+  color: #007bff;
+
+}
+.mat-form-field.mat-focused .mat-form-field-label{
+  color: #007bff;
+}
+
+.mat-form-field-ripple {
+  background-color: #007bff !important;;
+}
+
+.mat-datepicker-toggle {
+  color: #007bff;
+}
+.mat-datepicker-content {
+  background-color: #007bff;
+}
+.mat-select-value{
+  color: #FFF;
+}
+.mat-select-arrow{
+  color: #007bff;
+}
+.mat-select-panel {
+  background: #007bff;
+}
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: #000;
+}
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0px !important;}
+::ng-deep .mat-form-field-label-wrapper { top: -1.5em; }
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  transform: translateY(-1.1em) scale(.75);
+  width: 133.33333%;
+}
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: #007bff;
+}
+input.mat-input-element {
+  color: #FFF;
+}
+.mat-form-field{
+  font-size: 20px;
+}
+.sticky-div{
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  background-color: #2d545e;
+  z-index: 7;
+}
+.material-icons{
+  width: unset !important;
+}

@@ -1,0 +1,56 @@
+<div class="container-s-journey">
+  <div class="container-journey">
+    <div class="container-stop" *ngFor="let j of journeyList; let i = index" [attr.data-index]="i">
+      <div class="stop">
+        {{ j.from.name }}
+        <div>
+          <div style="width: auto">{{ j.departDate.date }}</div>
+          <div style="align-items: center;justify-content: center;width: auto;">
+            <i class="material-icons">
+              access_time
+            </i>
+            {{ j.departDate.time }}
+          </div>
+        </div>
+
+      </div>
+      <div style="width: 100px">
+        <i class="material-icons" style="margin: auto;">
+          arrow_right_alt
+        </i>
+      </div>
+      <div class="stop">
+        {{ j.to.name }}
+        <div>
+          <div>{{ j.arrivalDate.date }}</div>
+          <div style="align-items: center;justify-content: center;width: auto;">
+            <i class="material-icons">
+              access_time
+            </i>
+            {{ j.arrivalDate.time }}
+          </div>
+        </div>
+
+      </div>
+      <div style="justify-content: center; width: 130px;">
+        <i class="material-icons">
+          hourglass_empty
+        </i>
+        <div>
+          {{ j.duration }}
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="container-save">
+    <i class="material-icons">
+      hourglass_empty
+    </i>
+    <div>{{ totalDuration }}</div>
+    <i class="material-icons save" (click)="saveJourney(journeyList)">
+      save
+    </i>
+  </div>
+
+</div>

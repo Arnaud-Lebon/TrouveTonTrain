@@ -1,0 +1,31 @@
+<div class="container-s-saved">
+  <div>{{ journey.departDate.date }}</div>
+  <div>{{ journey.departDate.time }}</div>
+  <div>{{ journey.from }} </div>
+
+  <i class="material-icons">
+    arrow_right_alt
+  </i>
+  <div>{{ journey.arrivalDate.date }}</div>
+
+  <div>{{ journey.arrivalDate.time }}</div>
+  <div>{{ journey.to }}</div>
+
+  <div>{{journey.lengthTravel}}km</div>
+  <div>{{ costTravel }}{{selectedView}}</div>
+  <div class="container-duration">
+    <i class="material-icons">
+      hourglass_empty
+    </i>
+    <div>{{ journey.duration}}</div>
+  </div>
+  <mat-form-field *ngIf="costTravel">
+    <mat-label>Devise</mat-label>
+    <mat-select [(value)]="selected" (valueChange)="calcPrice()">
+      <mat-option *ngFor="let devise of devises" [value]="devise.value">
+        {{ devise.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+

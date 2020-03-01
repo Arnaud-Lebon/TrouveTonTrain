@@ -1,0 +1,7 @@
+runtime: java
+service: distance
+env: flex
+
+handlers:
+  - url: /distance
+    script: this field is required, but ignored
